@@ -1,0 +1,33 @@
+// Valores principales
+$primary-foreground-color: #fff; //skyblue; // #fff default
+$primary-background-color: #2B333F;  // #2B333F default
+
+// Opciones principales del Video
+$vjs-border: 1em;
+$vjs-border-color: $primary-background-color;
+$vjs-font_size: 12px;
+$vjs-color: $primary-foreground-color;
+$vjs-panell-pause-background: $primary-background-color;
+
+// Barra de progreso y opciones
+$control-bar-paused: false;
+$control-bar-background: true;
+$control-bar-font_size: 20px;
+$control-bar-background-color: $primary-background-color;
+
+// Opciones del boton de play inicial
+$big-play-button-center: true;
+$big-play-button-shadow: true;
+$big-play-button-animate: false;
+
+$big-play-width: 2em;
+$big-play-height: 2em;
+$big-play-border: 0em;
+$big-play-border-radius: 50%;
+$big-play-background: $primary-background-color;
+$big-play-background-hover: $primary-background-color;
+$big-play-font_size: 50px;
+
+// Slider
+$slider-bg-color: lighten($primary-background-color, 33%);
+
