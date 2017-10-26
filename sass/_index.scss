@@ -1,7 +1,19 @@
 .video{
   display: flex;
   flex-direction: column;
+  //justify-content: center;
+  width: 50%;
+  padding: 20px 10%;
+}
+.switchdemoBasicUsage .inset {
+  padding-left: 25px;
+  padding-top: 25px;
+
+
+}
+
+body{
+  display: flex;
+
   justify-content: center;
-
-
 }

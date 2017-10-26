@@ -1,64 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" ng-app="MyApp">
+<head >
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="http://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/theme.css">
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 </head>
 <body>
-<div class="video">
+<div class="video" ng-controller="playersCtrl">
+    <md-select ng-model="themeSelected" placeholder="Themes" class="md-no-underline" ng-change="update()">
+        <md-option ng-repeat="theme in themes" value="{{theme}}">{{theme}}</md-option>
+    </md-select>
+    <video-js></video-js>
 
-    <video id="my_video_1" class="video-js"
-           controls preload="none" poster='https://www.anipedia.net/imagenes/imagenes-de-aves.jpg'
-           data-setup='{ "aspectRatio":"640:267", "playbackRates": [0.1, 1.5, 2] }'>
-        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
-        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
-    </video>
-    <video id="my_video_1" class="video-js vjs-skin-"
-           controls preload="none" poster='https://www.anipedia.net/imagenes/imagenes-de-aves.jpg'
-           data-setup='{ "aspectRatio":"640:267", "playbackRates": [0.1, 1.5, 2] }'>
-        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
-        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
-    </video>
-
-    <video id="my_video_1" class="video-js vjs-skin-youtube"
-           controls preload="none" poster='https://www.anipedia.net/imagenes/imagenes-de-aves.jpg'
-           data-setup='{ "aspectRatio":"640:267", "playbackRates": [0.1, 1.5, 2] }'>
-        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
-        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
-    </video>
-<!--
-    <video id="my_video_2" class="video-js vjs-skin-black"
-           controls preload="none" poster='https://www.anipedia.net/imagenes/imagenes-de-aves.jpg'
-           data-setup='{ "aspectRatio":"640:267", "playbackRates": [0.1, 1.5, 2] }'>
-        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
-        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
-    </video>
-    <video id="my_video_2" class="video-js vjs-skin-1"
-           controls preload="none" poster='https://www.anipedia.net/imagenes/imagenes-de-aves.jpg'
-           data-setup='{ "aspectRatio":"640:267", "playbackRates": [0.1, 1.5, 2] }'>
-        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
-        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
-    </video>
-    <video id="my_video_2" class="video-js vjs-skin-2"
-           controls preload="none" poster='https://www.anipedia.net/imagenes/imagenes-de-aves.jpg'
-           data-setup='{ "aspectRatio":"640:267", "playbackRates": [0.1, 1.5, 2] }'>
-        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
-        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
-    </video>
-    <video id="my_video_2" class="video-js vjs-skin-3"
-           controls preload="none" poster='https://www.anipedia.net/imagenes/imagenes-de-aves.jpg'
-           data-setup='{ "aspectRatio":"640:267", "playbackRates": [0.1, 1.5, 2] }'>
-        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
-        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
-    </video>
-
--->
 </div>
 
+<div class="inset switchdemoBasicUsage" ng-controller="playersCtrl" ng-cloak="" >
+
+    <md-slider-container>
+        <span>Border Radius</span>
+        <md-slider flex="" min="0" max="100" ng-model="border.radius" aria-label="red" id="red-slider" ng-change="updateBorder()">
+        </md-slider>
+        <md-input-container>
+            <input flex="" type="number" ng-model="border.radius" aria-label="red" aria-controls="red-slider" ng-change="updateBorder()">
+        </md-input-container>
+    </md-slider-container>
+
+    <md-switch ng-model="data.cb1" aria-label="Switch 1">
+        Switch 1: {{ data.cb1 }}
+    </md-switch>
+
+
+</div>
 <script src="http://vjs.zencdn.net/6.2.8/video.js"></script>
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
 <script src="app.js"></script>
 </body>
 </html>

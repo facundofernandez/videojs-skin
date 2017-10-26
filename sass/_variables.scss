@@ -1,33 +1,36 @@
 // Valores principales
-$primary-foreground-color: #fff; //skyblue; // #fff default
-$primary-background-color: #2B333F;  // #2B333F default
+$name-skin: "" !default;
+$primary-foreground-color: #fff !default;
+$primary-background-color: #2B333F !default;
 
 // Opciones principales del Video
-$vjs-border: 1em;
-$vjs-border-color: $primary-background-color;
-$vjs-font_size: 12px;
-$vjs-color: $primary-foreground-color;
-$vjs-panell-pause-background: $primary-background-color;
+$vjs-border: .5em !default;
+$vjs-border-color: $primary-background-color !default;
+$vjs-font_size: .7em !default;
+$vjs-color: $primary-foreground-color !default;
+$vjs-panell-pause-background: $primary-background-color !default;
 
 // Barra de progreso y opciones
-$control-bar-paused: false;
-$control-bar-background: true;
-$control-bar-font_size: 20px;
-$control-bar-background-color: $primary-background-color;
+$control-bar-style-default: true !default;
+$control-bar-paused: false !default;
+$control-bar-background: true !default;
+$control-bar-font_size: 1em !default;
+$control-bar-background-color: $primary-background-color !default;
 
 // Opciones del boton de play inicial
-$big-play-button-center: true;
-$big-play-button-shadow: true;
-$big-play-button-animate: false;
+$big-play-button-center: true !default;
+$big-play-button-shadow: true !default;
+$big-play-button-animate: false !default;
 
-$big-play-width: 2em;
-$big-play-height: 2em;
-$big-play-border: 0em;
-$big-play-border-radius: 50%;
-$big-play-background: $primary-background-color;
-$big-play-background-hover: $primary-background-color;
-$big-play-font_size: 50px;
+$big-play-width: 2em !default;
+$big-play-height: 2em !default;
+$big-play-border: 0em !default;
+$big-play-border-radius: 50% !default;
+$big-play-background: $primary-background-color !default;
+$big-play-background-hover: $primary-background-color !default;
+$big-play-font_size: 50px !default;
 
 // Slider
-$slider-bg-color: lighten($primary-background-color, 33%);
+$slider-bg-color: white !default;
+//$slider-bg-color: lighten($primary-background-color, 33%);
 

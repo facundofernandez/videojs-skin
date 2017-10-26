@@ -12,6 +12,7 @@ gulp.task('server', ['sass'], function(){
 
     /* Lugares donde el evento watch escucha cambios en archivos */
     gulp.watch(['sass/**/*.scss'], ['sass']);
+    gulp.watch("*.js").on('change', reload );
     gulp.watch("*.html").on('change', reload );
 });
 
