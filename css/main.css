@@ -42,23 +42,13 @@
     background-color: #2B333F;
     background-color: rgba(43, 51, 63, 0.7); }
   .vjs-skin-youtube .vjs-slider {
-    background-color: #73859f;
-    background-color: rgba(115, 133, 159, 0.6); }
-  .vjs-skin-youtube .vjs-volume-level,
-  .vjs-skin-youtube .vjs-play-progress {
+    background-color: yellow; }
+    .vjs-skin-youtube .vjs-slider-bar {
+      background-color: red; }
+  .vjs-skin-youtube .vjs-volume-level {
     background: #fff; }
-    .vjs-skin-youtube .vjs-volume-level:before,
-    .vjs-skin-youtube .vjs-play-progress:before {
-      display: none; }
-  .vjs-skin-youtube .vjs-load-progress {
-    /* For IE8 we'll lighten the color */
-    background: #bfc7d3;
-    background: rgba(115, 133, 159, 0.5); }
-    .vjs-skin-youtube .vjs-load-progress div {
-      /* For IE8 we'll lighten the color */
-      background: white;
-      /* Otherwise we'll rely on stacked opacities */
-      background: rgba(115, 133, 159, 0.75); }
+  .vjs-skin-youtube .vjs-play-progress:before {
+    display: none; }
   .vjs-skin-youtube .vjs-big-play-button {
     /* IE8 - has no alpha support */
     background-color: red;
@@ -143,23 +133,13 @@ div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-youtube .vj
     background-color: #2B333F;
     background-color: rgba(43, 51, 63, 0.7); }
   .vjs-skin-youtube .vjs-slider {
-    background-color: #73859f;
-    background-color: rgba(115, 133, 159, 0.6); }
-  .vjs-skin-youtube .vjs-volume-level,
-  .vjs-skin-youtube .vjs-play-progress {
+    background-color: yellow; }
+    .vjs-skin-youtube .vjs-slider-bar {
+      background-color: red; }
+  .vjs-skin-youtube .vjs-volume-level {
     background: #fff; }
-    .vjs-skin-youtube .vjs-volume-level:before,
-    .vjs-skin-youtube .vjs-play-progress:before {
-      display: none; }
-  .vjs-skin-youtube .vjs-load-progress {
-    /* For IE8 we'll lighten the color */
-    background: #bfc7d3;
-    background: rgba(115, 133, 159, 0.5); }
-    .vjs-skin-youtube .vjs-load-progress div {
-      /* For IE8 we'll lighten the color */
-      background: white;
-      /* Otherwise we'll rely on stacked opacities */
-      background: rgba(115, 133, 159, 0.75); }
+  .vjs-skin-youtube .vjs-play-progress:before {
+    display: none; }
   .vjs-skin-youtube .vjs-big-play-button {
     /* IE8 - has no alpha support */
     background-color: red;

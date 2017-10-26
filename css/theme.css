@@ -42,23 +42,13 @@
     background-color: #2B333F;
     background-color: rgba(43, 51, 63, 0.7); }
   .vjs-skin-youtube .vjs-slider {
-    background-color: #73859f;
-    background-color: rgba(115, 133, 159, 0.6); }
-  .vjs-skin-youtube .vjs-volume-level,
-  .vjs-skin-youtube .vjs-play-progress {
+    background-color: yellow; }
+    .vjs-skin-youtube .vjs-slider-bar {
+      background-color: red; }
+  .vjs-skin-youtube .vjs-volume-level {
     background: #fff; }
-    .vjs-skin-youtube .vjs-volume-level:before,
-    .vjs-skin-youtube .vjs-play-progress:before {
-      display: none; }
-  .vjs-skin-youtube .vjs-load-progress {
-    /* For IE8 we'll lighten the color */
-    background: #bfc7d3;
-    background: rgba(115, 133, 159, 0.5); }
-    .vjs-skin-youtube .vjs-load-progress div {
-      /* For IE8 we'll lighten the color */
-      background: white;
-      /* Otherwise we'll rely on stacked opacities */
-      background: rgba(115, 133, 159, 0.75); }
+  .vjs-skin-youtube .vjs-play-progress:before {
+    display: none; }
   .vjs-skin-youtube .vjs-big-play-button {
     /* IE8 - has no alpha support */
     background-color: red;
@@ -143,23 +133,13 @@ div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-youtube .vj
     background-color: #2B333F;
     background-color: rgba(43, 51, 63, 0.7); }
   .vjs-skin-facebook .vjs-slider {
-    background-color: #73859f;
-    background-color: rgba(115, 133, 159, 0.6); }
-  .vjs-skin-facebook .vjs-volume-level,
-  .vjs-skin-facebook .vjs-play-progress {
+    background-color: yellow; }
+    .vjs-skin-facebook .vjs-slider-bar {
+      background-color: red; }
+  .vjs-skin-facebook .vjs-volume-level {
     background: #fff; }
-    .vjs-skin-facebook .vjs-volume-level:before,
-    .vjs-skin-facebook .vjs-play-progress:before {
-      display: none; }
-  .vjs-skin-facebook .vjs-load-progress {
-    /* For IE8 we'll lighten the color */
-    background: #bfc7d3;
-    background: rgba(115, 133, 159, 0.5); }
-    .vjs-skin-facebook .vjs-load-progress div {
-      /* For IE8 we'll lighten the color */
-      background: white;
-      /* Otherwise we'll rely on stacked opacities */
-      background: rgba(115, 133, 159, 0.75); }
+  .vjs-skin-facebook .vjs-play-progress:before {
+    display: none; }
   .vjs-skin-facebook .vjs-big-play-button {
     /* IE8 - has no alpha support */
     background-color: black;
@@ -245,23 +225,13 @@ div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-facebook .v
     background-color: #2B333F;
     background-color: rgba(43, 51, 63, 0.7); }
   .vjs-skin-1 .vjs-slider {
-    background-color: #73859f;
-    background-color: rgba(115, 133, 159, 0.6); }
-  .vjs-skin-1 .vjs-volume-level,
-  .vjs-skin-1 .vjs-play-progress {
+    background-color: yellow; }
+    .vjs-skin-1 .vjs-slider-bar {
+      background-color: red; }
+  .vjs-skin-1 .vjs-volume-level {
     background: #fff; }
-    .vjs-skin-1 .vjs-volume-level:before,
-    .vjs-skin-1 .vjs-play-progress:before {
-      display: none; }
-  .vjs-skin-1 .vjs-load-progress {
-    /* For IE8 we'll lighten the color */
-    background: #bfc7d3;
-    background: rgba(115, 133, 159, 0.5); }
-    .vjs-skin-1 .vjs-load-progress div {
-      /* For IE8 we'll lighten the color */
-      background: white;
-      /* Otherwise we'll rely on stacked opacities */
-      background: rgba(115, 133, 159, 0.75); }
+  .vjs-skin-1 .vjs-play-progress:before {
+    display: none; }
   .vjs-skin-1 .vjs-big-play-button {
     /* IE8 - has no alpha support */
     background-color: black;
@@ -344,23 +314,13 @@ div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-1 .vjs-text
     background-color: #2B333F;
     background-color: rgba(43, 51, 63, 0.7); }
   .vjs-skin-2 .vjs-slider {
-    background-color: #73859f;
-    background-color: rgba(115, 133, 159, 0.6); }
-  .vjs-skin-2 .vjs-volume-level,
-  .vjs-skin-2 .vjs-play-progress {
+    background-color: yellow; }
+    .vjs-skin-2 .vjs-slider-bar {
+      background-color: red; }
+  .vjs-skin-2 .vjs-volume-level {
     background: #fff; }
-    .vjs-skin-2 .vjs-volume-level:before,
-    .vjs-skin-2 .vjs-play-progress:before {
-      display: none; }
-  .vjs-skin-2 .vjs-load-progress {
-    /* For IE8 we'll lighten the color */
-    background: #bfc7d3;
-    background: rgba(115, 133, 159, 0.5); }
-    .vjs-skin-2 .vjs-load-progress div {
-      /* For IE8 we'll lighten the color */
-      background: white;
-      /* Otherwise we'll rely on stacked opacities */
-      background: rgba(115, 133, 159, 0.75); }
+  .vjs-skin-2 .vjs-play-progress:before {
+    display: none; }
   .vjs-skin-2 .vjs-big-play-button {
     /* IE8 - has no alpha support */
     background-color: black;
@@ -446,23 +406,13 @@ div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-2 .vjs-text
     background-color: #2B333F;
     background-color: rgba(43, 51, 63, 0.7); }
   .vjs-skin- .vjs-slider {
-    background-color: #73859f;
-    background-color: rgba(115, 133, 159, 0.6); }
-  .vjs-skin- .vjs-volume-level,
-  .vjs-skin- .vjs-play-progress {
+    background-color: yellow; }
+    .vjs-skin- .vjs-slider-bar {
+      background-color: red; }
+  .vjs-skin- .vjs-volume-level {
     background: #fff; }
-    .vjs-skin- .vjs-volume-level:before,
-    .vjs-skin- .vjs-play-progress:before {
-      display: none; }
-  .vjs-skin- .vjs-load-progress {
-    /* For IE8 we'll lighten the color */
-    background: #bfc7d3;
-    background: rgba(115, 133, 159, 0.5); }
-    .vjs-skin- .vjs-load-progress div {
-      /* For IE8 we'll lighten the color */
-      background: white;
-      /* Otherwise we'll rely on stacked opacities */
-      background: rgba(115, 133, 159, 0.75); }
+  .vjs-skin- .vjs-play-progress:before {
+    display: none; }
   .vjs-skin- .vjs-big-play-button {
     /* IE8 - has no alpha support */
     background-color: #2B333F;

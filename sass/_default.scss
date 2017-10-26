@@ -64,29 +64,26 @@
     background-color: rgba($primary-background-color, 0.7);
   }
   .vjs-slider {
-    background-color: $slider-bg-color;
-    background-color: rgba($slider-bg-color, 0.6);
+    background-color: yellow;
+
+    &-bar{
+      background-color: red;
+
+    }
   }
-  .vjs-volume-level,
-  .vjs-play-progress{
+  .vjs-volume-level{
     background: $primary-foreground-color;
-    &:before{
-      display:none;
-    }
+
+
   }
 
-  .vjs-load-progress {
-    /* For IE8 we'll lighten the color */
-    background: lighten($slider-bg-color, 25%);
-    background: rgba($slider-bg-color, 0.5);
-
-    div {
-      /* For IE8 we'll lighten the color */
-      background: lighten($slider-bg-color, 50%);
-      /* Otherwise we'll rely on stacked opacities */
-      background: rgba($slider-bg-color, 0.75);
-    }
+  .vjs-play-progress:before{
+    display:none;
   }
+
+
+
+
 
   .vjs-big-play-button {
 
@@ -124,9 +121,6 @@
     display:none;
   }
 */
-
-
-
 
 
   &:hover{
