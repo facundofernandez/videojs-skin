@@ -7,8 +7,8 @@
 
   & *{
     outline: none;
+    
   }
-
 
 
   .vjs-control-bar{
@@ -110,17 +110,20 @@
       margin-left: -($big-play-width / 2);
       margin-top: -($big-play-height / 2);
     } @else {
-      /* Align top left. 0.5em = 15px default */
+     
       left: 0.5em;
       top: 0.5em;
     }
   }
 
-  /*
+  
   &:not(:hover)  .vjs-control-bar{
-    display:none;
+    //display:none;
+    height: 0;
+    transition: all .5s;
+    opacity: 1;
   }
-*/
+
 
 
   &:hover{
@@ -166,8 +169,6 @@ div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-#{$name-ski
 
 
 .vjs-has-started.vjs-user-inactive.vjs-playing.vjs-skin-#{$name-skin} .vjs-control-bar {
-  height: .25em;
-  bottom: -.25em;
   opacity: 1;
   pointer-events: none;
   transition: all .5s;
