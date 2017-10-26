@@ -122,9 +122,9 @@
   
   &:not(:hover)  .vjs-control-bar{
     //display:none;
-    height: .25em;
-    bottom: -.25em;
+    height: 0;
     transition: all .5s;
+    opacity: 1;
   }
 
 
@@ -175,8 +175,6 @@ div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-#{$name-ski
 
 
 .vjs-has-started.vjs-user-inactive.vjs-playing.vjs-skin-#{$name-skin} .vjs-control-bar {
-  height: .25em;
-  bottom: -.25em;
   opacity: 1;
   pointer-events: none;
   transition: all .5s;
