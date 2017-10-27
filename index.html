@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="MyApp">
-<head >
+<head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="http://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/theme.css">
+
 
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
@@ -13,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
-<body>
-<div class="video" ng-controller="playersCtrl">
+<body ng-controller="playersCtrl">
+<div class="video">
     <md-select ng-model="themeSelected" placeholder="Themes" class="md-no-underline" ng-change="update()">
         <md-option ng-repeat="theme in themes" value="{{theme}}">{{theme}}</md-option>
     </md-select>
@@ -22,20 +22,100 @@
 
 </div>
 
-<div class="inset switchdemoBasicUsage" ng-controller="playersCtrl" ng-cloak="" >
+<div class="inset switchdemoBasicUsage" ng-cloak="">
+    <div ng-cloak>
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Boton play">
+                    <md-content class="md-padding">
 
-    <md-slider-container>
-        <span>Border Radius</span>
-        <md-slider flex="" min="0" max="100" ng-model="border.radius" aria-label="red" id="red-slider" ng-change="updateBorder()">
-        </md-slider>
-        <md-input-container>
-            <input flex="" type="number" ng-model="border.radius" aria-label="red" aria-controls="red-slider" ng-change="updateBorder()">
-        </md-input-container>
-    </md-slider-container>
 
-    <md-switch ng-model="data.cb1" aria-label="Switch 1">
-        Switch 1: {{ data.cb1 }}
-    </md-switch>
+                        <md-slider-container>
+                            <span>Border Radius</span>
+                            <md-slider flex="" min="0" max="100" ng-model="border.radius" aria-label="red"
+                                       id="red-slider" ng-change="updateBorder()">
+                            </md-slider>
+                            <md-input-container>
+                                <input flex="" type="number" ng-model="border.radius" aria-label="red"
+                                       aria-controls="red-slider" ng-change="updateBorder()">
+                            </md-input-container>
+                        </md-slider-container>
+
+                        <md-switch ng-model="border.centrado" aria-label="Switch 1" ng-change="updateBorder()">
+                            Boton Play Centrado
+                        </md-switch>
+
+                        <md-switch ng-model="border.shadow" aria-label="Switch 1" ng-change="updateBorder()">
+                            Boton Play con Sombra
+                        </md-switch>
+
+                        <md-input-container>
+                            <label>Background</label>
+                            <input ng-model="border.bg" ng-change="updateBorder()">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Hover Background</label>
+                            <input ng-model="border.hoverBg" ng-change="updateBorder()">
+                        </md-input-container>
+
+                        <md-slider-container>
+                            <span>Size</span>
+                            <md-slider flex="" min="1" max="50" ng-model="border.size" aria-label="red" id="red-slider"
+                                       ng-change="updateBorder()">
+                            </md-slider>
+                            <md-input-container>
+                                <input flex="" type="number" ng-model="border.size" aria-label="red"
+                                       aria-controls="red-slider" ng-change="updateBorder()">
+                            </md-input-container>
+                        </md-slider-container>
+
+                        <md-slider-container>
+                            <span>Height</span>
+                            <md-slider flex="" min="1" max="2" step="0.1" ng-model="border.height" aria-label="red"
+                                       id="red-slider" ng-change="updateBorder()">
+                            </md-slider>
+                            <md-input-container>
+                                <input flex="" type="number" ng-model="border.height" aria-label="red"
+                                       aria-controls="red-slider" ng-change="updateBorder()" min="1" max="2">
+                            </md-input-container>
+                        </md-slider-container>
+
+                    </md-content>
+                </md-tab>
+                <md-tab label="Control Bar">
+                    <md-content class="md-padding">
+
+                        <md-input-container>
+                            <label>Color Icon</label>
+                            <input ng-model="controlBar.color" ng-change="updateBorder()">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Background</label>
+                            <input ng-model="controlBar.bg" ng-change="updateBorder()">
+                        </md-input-container>
+                        <md-slider-container>
+                            <span>Size</span>
+                            <md-slider flex="" min="1" max=1.5 step="0.1" ng-model="controlBar.size" aria-label="red" id="red-slider"
+                                       ng-change="updateBorder()">
+                            </md-slider>
+                            <md-input-container>
+                                <input flex="" type="number" ng-model="controlBar.size" aria-label="red"
+                                       aria-controls="red-slider" ng-change="updateBorder()"  min="1" max=1.5 >
+                            </md-input-container>
+                        </md-slider-container>
+                    </md-content>
+                </md-tab>
+                <md-tab label="three">
+                    <md-content class="md-padding">
+
+
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
 
 
 </div>
