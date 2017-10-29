@@ -10,6 +10,8 @@
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 
+    <link href="node_modules/md-color-picker/dist/mdColorPicker.min.css" rel="stylesheet" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
@@ -18,7 +20,13 @@
     <md-select ng-model="themeSelected" placeholder="Themes" class="md-no-underline" ng-change="update()">
         <md-option ng-repeat="theme in themes" value="{{theme}}">{{theme}}</md-option>
     </md-select>
-    <video-js></video-js>
+    <video id="my_video_1" class="video-js vjs-skin-default"
+        controls preload="none" poster="https://www.anipedia.net/imagenes/pajaros-800x375.jpg"
+        data-setup='{ "aspectRatio":"640:267", "playbackRates": [0.1, 1.5, 2] }'>
+        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
+        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
+    </video>
+
 
 </div>
 
@@ -26,93 +34,182 @@
     <div ng-cloak>
         <md-content>
             <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="General">
+                    <md-content class="md-padding">
+                            <md-switch ng-model="general.border" aria-label="Switch 1" ng-change="updateCss()">
+                                Borde
+                            </md-switch>
+                            <div ng-show="general.border">
+                                <div
+                                    md-color-picker
+                                    ng-model="general.color"
+                                    label="Background"
+                                    md-color-material-palette="false"
+                                    md-color-sliders="false"
+                                    md-color-generic-palette="false"
+                                    md-color-history="false"
+                                    ng-change="updateCss()"
+                                ></div>
+                                <md-slider-container>
+                                    <span>Size</span>
+                                    <md-slider flex="" min="0.1" max="2" step="0.1" ng-model="general.size" aria-label="red" id="red-slider"
+                                                ng-change="updateCss()">
+                                    </md-slider>
+                                    <md-input-container>
+                                        <input flex="" min="0.1" max="2" type="number" ng-model="general.size" aria-label="red"
+                                                aria-controls="red-slider" ng-change="updateCss()">
+                                    </md-input-container>
+                                </md-slider-container>
+                            </div>
+                            
+                    </md-content>
+                </md-tab>
                 <md-tab label="Boton play">
                     <md-content class="md-padding">
-
-
                         <md-slider-container>
                             <span>Border Radius</span>
-                            <md-slider flex="" min="0" max="100" ng-model="border.radius" aria-label="red"
-                                       id="red-slider" ng-change="updateBorder()">
+                            <md-slider flex="" min="0" max="100" ng-model="botonPlay.radius" aria-label="red"
+                                       id="red-slider" ng-change="updateCss()">
                             </md-slider>
                             <md-input-container>
-                                <input flex="" type="number" ng-model="border.radius" aria-label="red"
-                                       aria-controls="red-slider" ng-change="updateBorder()">
+                                <input flex="" type="number" ng-model="botonPlay.radius" aria-label="red"
+                                       aria-controls="red-slider" ng-change="updateCss()">
                             </md-input-container>
                         </md-slider-container>
 
-                        <md-switch ng-model="border.centrado" aria-label="Switch 1" ng-change="updateBorder()">
+                        <md-switch ng-model="botonPlay.centrado" aria-label="Switch 1" ng-change="updateCss()">
                             Boton Play Centrado
                         </md-switch>
 
-                        <md-switch ng-model="border.shadow" aria-label="Switch 1" ng-change="updateBorder()">
+                        <md-switch ng-model="botonPlay.shadow" aria-label="Switch 1" ng-change="updateCss()">
                             Boton Play con Sombra
                         </md-switch>
 
-                        <md-input-container>
-                            <label>Background</label>
-                            <input ng-model="border.bg" ng-change="updateBorder()">
-                        </md-input-container>
+                        <div
+                            md-color-picker
+                            ng-model="botonPlay.bg"
+                            label="Background"
+                            md-color-material-palette="false"
+                            md-color-sliders="false"
+                            md-color-generic-palette="false"
+                            md-color-history="false"
+                            ng-change="updateCss()"
+                        ></div>
 
-                        <md-input-container>
-                            <label>Hover Background</label>
-                            <input ng-model="border.hoverBg" ng-change="updateBorder()">
-                        </md-input-container>
+                        <div
+                            md-color-picker
+                            ng-model="botonPlay.hoverBg"
+                            label="Hover Background"
+                            md-color-material-palette="false"
+                            md-color-sliders="false"
+                            md-color-generic-palette="false"
+                            md-color-history="false"
+                            ng-change="updateCss()"
+                        ></div>
 
                         <md-slider-container>
                             <span>Size</span>
-                            <md-slider flex="" min="1" max="50" ng-model="border.size" aria-label="red" id="red-slider"
-                                       ng-change="updateBorder()">
+                            <md-slider flex="" min="1" max="50" ng-model="botonPlay.size" aria-label="red" id="red-slider"
+                                       ng-change="updateCss()">
                             </md-slider>
                             <md-input-container>
-                                <input flex="" type="number" ng-model="border.size" aria-label="red"
-                                       aria-controls="red-slider" ng-change="updateBorder()">
+                                <input flex="" type="number" ng-model="botonPlay.size" aria-label="red"
+                                       aria-controls="red-slider" ng-change="updateCss()">
                             </md-input-container>
                         </md-slider-container>
 
                         <md-slider-container>
                             <span>Height</span>
-                            <md-slider flex="" min="1" max="2" step="0.1" ng-model="border.height" aria-label="red"
-                                       id="red-slider" ng-change="updateBorder()">
+                            <md-slider flex="" min="1" max="2" step="0.1" ng-model="botonPlay.height" aria-label="red"
+                                       id="red-slider" ng-change="updateCss()">
                             </md-slider>
                             <md-input-container>
-                                <input flex="" type="number" ng-model="border.height" aria-label="red"
-                                       aria-controls="red-slider" ng-change="updateBorder()" min="1" max="2">
+                                <input flex="" type="number" ng-model="botonPlay.height" aria-label="red"
+                                       aria-controls="red-slider" ng-change="updateCss()" min="1" max="2">
                             </md-input-container>
+                            
                         </md-slider-container>
-
+                        <md-slider-container>
+                                <span>Width</span>
+                                <md-slider flex="" min="1" max="2" step="0.1" ng-model="botonPlay.width" aria-label="red"
+                                           id="red-slider" ng-change="updateCss()">
+                                </md-slider>
+                                <md-input-container>
+                                    <input flex="" type="number" ng-model="botonPlay.width" aria-label="red"
+                                            aria-controls="red-slider" ng-change="updateCss()" min="1" max="2">
+                                </md-input-container>
+                                
+                            </md-slider-container>
+                        
                     </md-content>
                 </md-tab>
                 <md-tab label="Control Bar">
                     <md-content class="md-padding">
 
-                        <md-input-container>
-                            <label>Color Icon</label>
-                            <input ng-model="controlBar.color" ng-change="updateBorder()">
-                        </md-input-container>
+                        
 
-                        <md-input-container>
-                            <label>Background</label>
-                            <input ng-model="controlBar.bg" ng-change="updateBorder()">
-                        </md-input-container>
+                        <md-switch ng-model="controlBar.hide" aria-label="Switch 1" ng-change="updateCss()">
+                            Ocultar al pausar
+                        </md-switch>
+
+                        <md-radio-group ng-model="controlBar.style" ng-change="updateCss()">      
+                            <md-radio-button value="1" class="md-primary">Style 1</md-radio-button>
+                            <md-radio-button value="2">Style 2</md-radio-button>    
+                        </md-radio-group>
+
+                        <md-switch ng-model="controlBar.btnVelocidad" aria-label="Switch 1" ng-change="updateCss()">
+                                Boton velocidad
+                            </md-switch>
+
+                        <div
+                        md-color-picker
+                        ng-model="controlBar.color"
+                        label="Color Icon"
+                        md-color-material-palette="false"
+                        md-color-sliders="false"
+                        md-color-generic-palette="false"
+                        md-color-history="false"
+                        ng-change="updateCss()"
+                        ></div>
+
+                        <div
+                        md-color-picker
+                        ng-model="controlBar.bg"
+                        label="Background"
+                        md-color-material-palette="false"
+                        md-color-sliders="false"
+                        md-color-generic-palette="false"
+                        md-color-history="false"
+                        ng-change="updateCss()"
+                        ></div>
+
+                        <div
+                        md-color-picker
+                        ng-model="controlBar.sliderColor"
+                        label="Slider Color"
+                        md-color-material-palette="false"
+                        md-color-sliders="false"
+                        md-color-generic-palette="false"
+                        md-color-history="false"
+                        ng-change="updateCss()"
+                        ></div>
+
                         <md-slider-container>
                             <span>Size</span>
                             <md-slider flex="" min="1" max=1.5 step="0.1" ng-model="controlBar.size" aria-label="red" id="red-slider"
-                                       ng-change="updateBorder()">
+                                       ng-change="updateCss()">
                             </md-slider>
                             <md-input-container>
                                 <input flex="" type="number" ng-model="controlBar.size" aria-label="red"
-                                       aria-controls="red-slider" ng-change="updateBorder()"  min="1" max=1.5 >
+                                       aria-controls="red-slider" ng-change="updateCss()"  min="1" max=1.5 >
                             </md-input-container>
                         </md-slider-container>
-                    </md-content>
-                </md-tab>
-                <md-tab label="three">
-                    <md-content class="md-padding">
 
+                        
 
                     </md-content>
                 </md-tab>
+
             </md-tabs>
         </md-content>
     </div>
@@ -129,6 +226,9 @@
 
 <!-- Angular Material Library -->
 <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<script src="node_modules/tinycolor2/dist/tinycolor-min.js"></script>
+<script src="node_modules/md-color-picker/dist/mdColorPicker.min.js"></script>
 
 <script src="app.js"></script>
 </body>
