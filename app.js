@@ -78,6 +78,22 @@ let socialMenu = createSocialElement({
             }
         },
         {
+            label: "facebook",
+            class: "vjs-icon-facebook",
+            handleClick: function () {
+                console.log('click facebook');
+                //window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/');
+            }
+        },
+        {
+            label: "facebook",
+            class: "vjs-icon-facebook",
+            handleClick: function () {
+                console.log('click facebook');
+                //window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/');
+            }
+        },
+        {
             label: "twitter",
             class: "vjs-icon-twitter",
             handleClick: function () {
@@ -97,18 +113,16 @@ function createSocialElement(options) {
             this.addClass("vjs-button-social");
             //this.controlText("c");
         },
-        handleClick: function () {
+        handleClick: function (e) {
+
             console.log("Open Links");
             let el = document.getElementsByClassName("vjs-menu-social")[0];
-            console.log(el.style.display)
-            if(el.style.display === "" || el.style.display === "none"){
-                el.style.display = "flex";
-            }else{
-                el.style.display = "none";
-            }
+
+            el.classList.toggle("show");
 
         }
     });
+
 
     videojs.registerComponent("ButtonSocial", newButton);
 
@@ -134,6 +148,7 @@ function createSocialElement(options) {
     linksContent.el_ = div;
 
     options.player.addChild(linksContent);
+
 
     return options.player.addChild("ButtonSocial");
 
@@ -309,10 +324,10 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
                 display: none; }
               ` : ""
             }
-                      
-                      
-                      
-                      
+            
+            .vjs-skin-default .vjs-button-social:before{
+                background: ${$scope.controlBar.bg};
+            }
 `;
 
             style.innerHTML = css;
