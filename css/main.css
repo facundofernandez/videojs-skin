@@ -49,8 +49,8 @@ body {
     padding: 5px;
     font-size: 20px;
     border-radius: 50%;
-    background: red;
-    content: "\f10f";
+    background: none;
+    content: "\f115";
     font-family: VideoJS;
     transform: translate(-50%, -50%);
     position: absolute; }
@@ -68,6 +68,9 @@ body {
   background: rgba(0, 0, 0, 0.8);
   height: 100%;
   font-size: 3em; }
+  .vjs-skin-default .vjs-menu-social:not(.show) + .vjs-button-social:before {
+    content: "\f10f";
+    background: red; }
   .vjs-skin-default .vjs-menu-social.show {
     display: flex; }
   .vjs-skin-default .vjs-menu-social span {

@@ -322,12 +322,16 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
             ${$scope.socialMedia.hide ? `
               div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-default .vjs-button-social {
                 display: none; }
+              div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-default .vjs-menu-social {
+                display: none; }  
+                
               ` : ""
             }
             
-            .vjs-skin-default .vjs-button-social:before{
+            .vjs-skin-default .vjs-menu-social:not(.show) + .vjs-button-social:before{
+                content: "\f10f";
                 background: ${$scope.controlBar.bg};
-            }
+              }
 `;
 
             style.innerHTML = css;
