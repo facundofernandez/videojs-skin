@@ -40,7 +40,7 @@ let player = videojs('my_video_1', {
     plugins: {
         videoJsResolutionSwitcher: {
             default: 'high',
-            dynamicLabel: true
+
         }
     }
 }, function () {
@@ -184,7 +184,7 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
                 ? `border: ${$scope.general.size}em ${$scope.general.color} solid;`
                 : ""
                 }
-
+                border-bottom:0;
               font-size: 0.7em;
               color: #fff; }
               
