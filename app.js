@@ -33,7 +33,8 @@ let facebook = createSocialElement({
     name:"facebook",
     class:"icon-facebook",
     handleClick: function() {
-        console.log('click');  
+        console.log('click');
+        window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/');  
     }});
 
 let twitter = createSocialElement({
