@@ -2,6 +2,7 @@
 
 // ICON: http://videojs.github.io/font/
 // PLUGINS: http://videojs.com/plugins/
+// Social Icon plugin: http://tastybytes.net/creating-a-video-js-plugin/
 
 let configuraciones = {
     general: {
@@ -28,6 +29,9 @@ let configuraciones = {
         bg: "red",
         color: "#fff",
         sliderColor: "#fff"
+    },
+    socialMedia: {
+        hide: true
     }
 };
 
@@ -39,7 +43,7 @@ let player = videojs('my_video_1', {
             dynamicLabel: true
         }
     }
-}, function(){
+}, function () {
 
     // Add dynamically sources via updateSrc method
     player.updateSrc([
@@ -55,48 +59,84 @@ let player = videojs('my_video_1', {
         }
     ]);
 
-    player.on('resolutionchange', function(){
+    player.on('resolutionchange', function () {
         console.info('Source changed to %s', player.src())
     })
 
 });
 
 
-let facebook = createSocialElement({
+let socialMenu = createSocialElement({
     player: player,
-    name: "facebook",
-    class: "vjs-icon-facebook",
-    handleClick: function () {
-        console.log('click');
-        window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/');
-    }
-});
-
-let twitter = createSocialElement({
-    player: player,
-    name: "twitter",
-    class: "vjs-icon-twitter",
-    handleClick: function () {
-        console.log('click');
-    }
+    links: [
+        {
+            label: "facebook",
+            class: "vjs-icon-facebook",
+            handleClick: function () {
+                console.log('click facebook');
+                //window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/');
+            }
+        },
+        {
+            label: "twitter",
+            class: "vjs-icon-twitter",
+            handleClick: function () {
+                console.log('click twitter');
+                //window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/');
+            }
+        }
+    ]
 });
 
 function createSocialElement(options) {
     //Creo componente botton
     let Button = videojs.getComponent('Button');
-    // Extiendo del componente creado uno nuevo cusomizable
     let newButton = videojs.extend(Button, {
         constructor: function () {
             Button.apply(this, arguments);
-            this.addClass(options.class);
+            this.addClass("vjs-button-social");
             //this.controlText("c");
         },
-        handleClick: options.handleClick
+        handleClick: function () {
+            console.log("Open Links");
+            let el = document.getElementsByClassName("vjs-menu-social")[0];
+            console.log(el.style.display)
+            if(el.style.display === "" || el.style.display === "none"){
+                el.style.display = "flex";
+            }else{
+                el.style.display = "none";
+            }
+
+        }
     });
 
-    videojs.registerComponent(options.name, newButton);
+    videojs.registerComponent("ButtonSocial", newButton);
 
-    return options.player.getChild('controlBar').addChild(options.name, {}, 9);
+
+    let Component = videojs.getComponent('Component');
+    let linksContent = new Component(player);
+    let div = linksContent.createEl('div', {
+        className: "vjs-menu-social"
+    });
+
+
+    for (let elem of options.links) {
+
+        let item = new Component(player).createEl('span', {
+            className: elem.class
+        });
+
+        item.addEventListener("click", elem.handleClick);
+
+        div.appendChild(item);
+    }
+
+    linksContent.el_ = div;
+
+    options.player.addChild(linksContent);
+
+    return options.player.addChild("ButtonSocial");
+
 }
 
 
@@ -107,6 +147,7 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
         $scope.general = configuraciones.general;
         $scope.botonPlay = configuraciones.botonPlay;
         $scope.controlBar = configuraciones.controlBar;
+        $scope.socialMedia = configuraciones.socialMedia;
 
         $scope.themes = srvTheme.get();
 
@@ -248,6 +289,9 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
             
             div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-default .vjs-big-play-button {
               display: block; }
+              
+              div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-default .vjs-button-social {
+              display: block; }
 
             ${$scope.controlBar.hide ? `
               div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-default .vjs-control-bar {
@@ -259,7 +303,17 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
             div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-default .vjs-text-track-display {
               background: ${$scope.general.fondoColor};
               height: 100%; }
-            `;
+              
+            ${$scope.socialMedia.hide ? `
+              div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-default .vjs-button-social {
+                display: none; }
+              ` : ""
+            }
+                      
+                      
+                      
+                      
+`;
 
             style.innerHTML = css;
 

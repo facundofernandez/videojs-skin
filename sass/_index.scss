@@ -28,27 +28,39 @@ body{
   justify-content: center;
 }
 
-.vjs-social{
-  display: flex;
-  margin: 10px;
+.vjs-menu-social{
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
   position: absolute;
   top:0; right: 0;
+  width: 100%;
+  background: rgba(0,0,0,.8);
+  height: 100%;
+  font-size: 3em;
+
   span{
-    display: block;
-    padding: 5px;
-    margin:5px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: red;
-    &:nth-child(1):before{
-      content:"";
+    position: relative;
+
+    &:before {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translate(-50%,-50%);
+      background: gray;
+      height: 2em;
+      width: 2em;
+      border-radius: 50%;
+      border: 8px solid gray;
+      transition: border .3s;
     }
-    &:nth-child(2):before{
-      content:"t";
-    }
-    &:nth-child(3):before{
-      content:"f";
+
+    &:hover:before{
+      color:gray;
+      background: #fff;
+      cursor: pointer;
+      border:6px solid gray;
     }
   }
 }
@@ -67,6 +79,32 @@ body{
 [class*=" icon-"]:before {
   font-family: FontAwesome;
   font-size: 20px 
+}
+
+.vjs-skin-default .vjs-button-social{
+  height: 0;
+  position: absolute;
+  top:20px;
+  right: 0;
+  display:none;
+  &:before{
+    width: 30px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 50%;
+    background: red;
+    content: "\f10f";
+    font-family: VideoJS;
+    transform: translate(-50%,-50%);
+    position: absolute;
+
+  }
+
+  &:hover:before{
+    color:black;
+  }
+
+
 }
 
 .vjs-resolution-button{
