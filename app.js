@@ -77,7 +77,7 @@ angular.module('MyApp', ['ngMaterial','mdColorPicker'])
         $scope.changeTheme = function (theme) {
             let head = document.getElementsByTagName('head')[0];
             let style = head.querySelector("#estilos");
-            console.log(theme)
+            console.log(theme);
             $scope.general       = theme.json.general;
             $scope.botonPlay     = theme.json.botonPlay;
             $scope.controlBar    = theme.json.controlBar
@@ -235,14 +235,14 @@ angular.module('MyApp', ['ngMaterial','mdColorPicker'])
         $scope.descargarCss = function(){
             let head = document.getElementsByTagName('head')[0];
             let style = head.querySelector("#estilos");
-            var blob = new Blob([style.innerHTML], {type: "text/plain;charset=utf-8"});
+            let blob = new Blob([style.innerHTML], {type: "text/plain;charset=utf-8"});
             saveAs(blob, "vjs-skin-default.css");
-        }
+        };
 
         $scope.showPrompt = function(ev) {
             
             // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.prompt()
+            let confirm = $mdDialog.prompt()
               .title('Elija nombre del theme.')
               //.textContent('Elija nombre del theme.')
               .placeholder('Nombre de Theme')
@@ -259,8 +259,8 @@ angular.module('MyApp', ['ngMaterial','mdColorPicker'])
                   },
                   css: $scope.updateCss(),
                   nombre: result
-              }
-              console.log(theme)
+              };
+              console.log(theme);
                 if(result !== undefined && result !== ""){
                   srvTheme.save(theme);
                   $scope.themes = srvTheme.get();
