@@ -3,7 +3,7 @@
   flex-direction: column;
   //justify-content: center;
   width: 100%;
-  padding: 20px 10%;
+  padding: 20px 20px;
 }
 .switchdemoBasicUsage.inset {
   padding-left: 45px;
@@ -26,4 +26,45 @@ body{
   display: flex;
 
   justify-content: center;
+}
+
+.vjs-social{
+  display: flex;
+  margin: 10px;
+  position: absolute;
+  top:0; right: 0;
+  span{
+    display: block;
+    padding: 5px;
+    margin:5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: red;
+    &:nth-child(1):before{
+      content:"";
+    }
+    &:nth-child(2):before{
+      content:"t";
+    }
+    &:nth-child(3):before{
+      content:"f";
+    }
+  }
+}
+
+.icon{
+  &-facebook:before {
+    content: "\f082";
+  }
+  &-twitter:before {
+    content: "\f081";
+  }
+}
+
+/* CUSTOM BUTTONS */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: FontAwesome;
+  font-size: 20px 
 }
