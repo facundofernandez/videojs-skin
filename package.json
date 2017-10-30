@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "file-saver": "^1.3.3",
-    "md-color-picker": "^0.2.6"
+    "md-color-picker": "^0.2.6",
+    "videojs-resolution-switcher": "^0.4.2"
   }
 }

@@ -12,6 +12,8 @@
 
     <link href="node_modules/md-color-picker/dist/mdColorPicker.min.css" rel="stylesheet" />
 
+    <link href="node_modules/videojs-resolution-switcher/lib/videojs-resolution-switcher.css" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
@@ -28,8 +30,8 @@
     <video id="my_video_1" class="video-js vjs-skin-default"
         controls preload="none" poster="https://www.anipedia.net/imagenes/pajaros-800x375.jpg"
         data-setup='{ "aspectRatio":"640:267", "playbackRates": [0.1, 1.5, 2] }'>
-        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
-        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
+        <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4' label='HD'/>
+        <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm' label='SD'/>
     </video>
     <div 
         class="dialog-demo-content" 
@@ -259,6 +261,7 @@
 
 <script src="node_modules/file-saver/FileSaver.min.js"></script>
 
+<script src="node_modules/videojs-resolution-switcher/lib/videojs-resolution-switcher.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

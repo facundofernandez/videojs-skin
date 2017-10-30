@@ -2,5 +2,4 @@
 .idea
 videojs.iml
 package-lock.json
-css
 node_modules

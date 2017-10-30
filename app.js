@@ -1,13 +1,16 @@
 "use strict";
 
+// ICON: http://videojs.github.io/font/
+// PLUGINS: http://videojs.com/plugins/
+
 let configuraciones = {
-    general:{
+    general: {
         border: false,
         color: "red",
         size: 0.5,
-        fondoColor:"rgba(0,0,0,.3)"
+        fondoColor: "rgba(0,0,0,.3)"
     },
-    botonPlay : {
+    botonPlay: {
         radius: 100,
         centrado: false,
         size: 50,
@@ -17,40 +20,73 @@ let configuraciones = {
         hoverBg: "brown",
         shadow: false
     },
-    controlBar : {
-        style:"1",
+    controlBar: {
+        style: "1",
         hide: false,
         btnVelocidad: false,
         size: 1,
         bg: "red",
         color: "#fff",
         sliderColor: "#fff"
-    }};
+    }
+};
 
-let player = videojs('my_video_1');
+let player = videojs('my_video_1', {
+    controls: true,
+    plugins: {
+        videoJsResolutionSwitcher: {
+            default: 'high',
+            dynamicLabel: true
+        }
+    }
+}, function(){
+
+    // Add dynamically sources via updateSrc method
+    player.updateSrc([
+        {
+            src: 'http://media.xiph.org/mango/tears_of_steel_1080p.webm',
+            type: 'video/webm',
+            label: '360'
+        },
+        {
+            src: 'http://mirrorblender.top-ix.org/movies/sintel-1024-surround.mp4',
+            type: 'video/mp4',
+            label: '720'
+        }
+    ]);
+
+    player.on('resolutionchange', function(){
+        console.info('Source changed to %s', player.src())
+    })
+
+});
+
+
 let facebook = createSocialElement({
     player: player,
-    name:"facebook",
-    class:"icon-facebook",
-    handleClick: function() {
+    name: "facebook",
+    class: "vjs-icon-facebook",
+    handleClick: function () {
         console.log('click');
-        window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/');  
-    }});
+        window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/');
+    }
+});
 
 let twitter = createSocialElement({
     player: player,
-    name:"twitter",
-    class:"icon-twitter",
-    handleClick: function() {
-        console.log('click');  
-    }});
+    name: "twitter",
+    class: "vjs-icon-twitter",
+    handleClick: function () {
+        console.log('click');
+    }
+});
 
-function createSocialElement (options) { 
+function createSocialElement(options) {
     //Creo componente botton
     let Button = videojs.getComponent('Button');
     // Extiendo del componente creado uno nuevo cusomizable
     let newButton = videojs.extend(Button, {
-        constructor: function() {
+        constructor: function () {
             Button.apply(this, arguments);
             this.addClass(options.class);
             //this.controlText("c");
@@ -59,30 +95,30 @@ function createSocialElement (options) {
     });
 
     videojs.registerComponent(options.name, newButton);
-    
-    return options.player.getChild('controlBar').addChild(options.name,{},9);
+
+    return options.player.getChild('controlBar').addChild(options.name, {}, 9);
 }
 
 
-angular.module('MyApp', ['ngMaterial','mdColorPicker'])
+angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
 
-    .controller('playersCtrl', ['$scope', 'theme','$mdDialog', function ($scope,srvTheme,$mdDialog) {
+    .controller('playersCtrl', ['$scope', 'theme', '$mdDialog', function ($scope, srvTheme, $mdDialog) {
 
-        $scope.general       = configuraciones.general;
-        $scope.botonPlay     = configuraciones.botonPlay;
-        $scope.controlBar    = configuraciones.controlBar;
-        
+        $scope.general = configuraciones.general;
+        $scope.botonPlay = configuraciones.botonPlay;
+        $scope.controlBar = configuraciones.controlBar;
+
         $scope.themes = srvTheme.get();
-        
+
         $scope.changeTheme = function (theme) {
             let head = document.getElementsByTagName('head')[0];
             let style = head.querySelector("#estilos");
             console.log(theme);
-            $scope.general       = theme.json.general;
-            $scope.botonPlay     = theme.json.botonPlay;
-            $scope.controlBar    = theme.json.controlBar
+            $scope.general = theme.json.general;
+            $scope.botonPlay = theme.json.botonPlay;
+            $scope.controlBar = theme.json.controlBar
             style.innerHTML = theme.css;
-            
+
         };
 
         $scope.updateCss = function () {
@@ -92,7 +128,7 @@ angular.module('MyApp', ['ngMaterial','mdColorPicker'])
             if (style) {
                 console.log("existe");
             } else {
-                console.log("no existe");
+
                 let style = document.createElement('style');
                 style.id = "estilos";
                 style.type = 'text/css';
@@ -103,10 +139,10 @@ angular.module('MyApp', ['ngMaterial','mdColorPicker'])
             let css = `
             .vjs-skin-default {
               
-              ${$scope.general.border 
-                ? `border: ${$scope.general.size}em ${$scope.general.color} solid;` 
+              ${$scope.general.border
+                ? `border: ${$scope.general.size}em ${$scope.general.color} solid;`
                 : ""
-              }
+                }
 
               font-size: 0.7em;
               color: #fff; }
@@ -143,10 +179,10 @@ angular.module('MyApp', ['ngMaterial','mdColorPicker'])
                     border: 0em solid #fff;
                     border-radius: ${$scope.botonPlay.radius}%;
                     
-                    ${ $scope.botonPlay.shadow ? 
-                        `box-shadow: -20px -10px 10px rgba(0, 0, 0, 0.3) inset, 10px 10px 10px rgba(0, 0, 0, 0.3);` 
-                        : "" 
-                    }
+                    ${ $scope.botonPlay.shadow ?
+                `box-shadow: -20px -10px 10px rgba(0, 0, 0, 0.3) inset, 10px 10px 10px rgba(0, 0, 0, 0.3);`
+                : ""
+                }
 
                     ${$scope.botonPlay.centrado ? `
                         left: 50%;
@@ -154,7 +190,7 @@ angular.module('MyApp', ['ngMaterial','mdColorPicker'])
                         margin-left: -1em;
                         margin-top: -1em;
                         ` : ""
-                    }
+                }
                 }
 
 
@@ -216,8 +252,8 @@ angular.module('MyApp', ['ngMaterial','mdColorPicker'])
             ${$scope.controlBar.hide ? `
               div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-default .vjs-control-bar {
                 display: none; }
-              ` : "" 
-            }
+              ` : ""
+                }
             
             
             div:not(.vjs-seeking):not(.vjs-waiting).video-js.vjs-paused.vjs-skin-default .vjs-text-track-display {
@@ -232,64 +268,64 @@ angular.module('MyApp', ['ngMaterial','mdColorPicker'])
         };
         $scope.updateCss();
 
-        $scope.descargarCss = function(){
+        $scope.descargarCss = function () {
             let head = document.getElementsByTagName('head')[0];
             let style = head.querySelector("#estilos");
             let blob = new Blob([style.innerHTML], {type: "text/plain;charset=utf-8"});
             saveAs(blob, "vjs-skin-default.css");
         };
 
-        $scope.showPrompt = function(ev) {
-            
+        $scope.showPrompt = function (ev) {
+
             // Appending dialog to document.body to cover sidenav in docs app
             let confirm = $mdDialog.prompt()
-              .title('Elija nombre del theme.')
-              //.textContent('Elija nombre del theme.')
-              .placeholder('Nombre de Theme')
-              .targetEvent(ev)
-              .ok('Guardar')
-              .cancel('Cancelar');
-        
-            $mdDialog.show(confirm).then(function(result) {
-              let theme = {
-                  json: {
-                    general: $scope.general,    
-                    botonPlay: $scope.botonPlay,  
-                    controlBar: $scope.controlBar
-                  },
-                  css: $scope.updateCss(),
-                  nombre: result
-              };
-              console.log(theme);
-                if(result !== undefined && result !== ""){
-                  srvTheme.save(theme);
-                  $scope.themes = srvTheme.get();
-              }
+                .title('Elija nombre del theme.')
+                //.textContent('Elija nombre del theme.')
+                .placeholder('Nombre de Theme')
+                .targetEvent(ev)
+                .ok('Guardar')
+                .cancel('Cancelar');
 
-            }, function() {
-            
-            
+            $mdDialog.show(confirm).then(function (result) {
+                let theme = {
+                    json: {
+                        general: $scope.general,
+                        botonPlay: $scope.botonPlay,
+                        controlBar: $scope.controlBar
+                    },
+                    css: $scope.updateCss(),
+                    nombre: result
+                };
+                console.log(theme);
+                if (result !== undefined && result !== "") {
+                    srvTheme.save(theme);
+                    $scope.themes = srvTheme.get();
+                }
+
+            }, function () {
+
+
             });
-          };
+        };
 
 
     }])
-    .factory('theme', ['$window', function(win) {
+    .factory('theme', ['$window', function (win) {
 
-        if(!localStorage.getItem("themes")){
-            localStorage.setItem("themes","[]");
+        if (!localStorage.getItem("themes")) {
+            localStorage.setItem("themes", "[]");
         }
-        
+
         return {
-            get: function(){
+            get: function () {
                 console.log("get");
                 return JSON.parse(localStorage.getItem("themes"));
             },
-            save: function(theme){
+            save: function (theme) {
                 let themes = this.get();
                 themes.push(theme);
-                console.log("save",theme.json);
-                localStorage.setItem("themes",JSON.stringify(themes));
+                console.log("save", theme.json);
+                localStorage.setItem("themes", JSON.stringify(themes));
             }
         }
-      }]);
+    }]);
