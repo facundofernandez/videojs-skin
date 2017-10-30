@@ -159,6 +159,7 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
 
     .controller('playersCtrl', ['$scope', 'theme', '$mdDialog', function ($scope, srvTheme, $mdDialog) {
 
+
         $scope.general = configuraciones.general;
         $scope.botonPlay = configuraciones.botonPlay;
         $scope.controlBar = configuraciones.controlBar;
@@ -326,7 +327,7 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
                 display: none; }  
                 
               ` : ""
-            }
+                }
             
             .vjs-skin-default .vjs-menu-social:not(.show) + .vjs-button-social:before{
                 content: "\f10f";
@@ -402,3 +403,6 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
             }
         }
     }]);
+
+
+angular.bootstrap(document, ['MyApp']);

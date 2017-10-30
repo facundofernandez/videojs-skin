@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="MyApp">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -25,7 +25,7 @@
 </head>
 <body ng-controller="playersCtrl">
     
-<div class="video">
+<div class="video" ng-cloak>
     <md-select ng-model="themeSelected" placeholder="Themes" class="md-no-underline">
         <md-option 
             ng-repeat="theme in themes track by theme.nombre" 
