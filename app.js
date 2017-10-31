@@ -35,20 +35,11 @@ let configuraciones = {
     }
 };
 
-let player = videojs('my_video_1', {
-    controls: true,
-
-    plugins: {
-        videoJsResolutionSwitcher: {
-            default: 'high',
-            dynamicLabel: true
-          
-        }
-    }
-}, function () {
-
-});
-
+let player = videojs('my_video_1')
+videojs('my_video_1').videoJsResolutionSwitcher({
+    default: 'SD',
+    dynamicLabel: true
+  })
 
 let socialMenu = createSocialElement({
     player: player,
@@ -179,7 +170,7 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
 
             let css = `
             .vjs-skin-default {
-              
+                overflow: hidden;
               ${$scope.general.border
                 ? `border: ${$scope.general.size}em ${$scope.general.color} solid;`
                 : ""
@@ -273,6 +264,12 @@ angular.module('MyApp', ['ngMaterial', 'mdColorPicker'])
                     .vjs-skin-default .vjs-remaining-time{
                         display:none;
                     }
+
+                    .vjs-skin-default.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar{
+                        opacity: 1;
+                        transition:all .2s;
+                        height: 0;
+                      }
 
                 ` : "" }
 
